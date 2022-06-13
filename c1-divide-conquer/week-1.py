@@ -1,4 +1,5 @@
 from math import ceil
+import time
 
 # ====================
 # Class definition
@@ -7,7 +8,7 @@ from math import ceil
 class Karatsuba:
     """Karatsuba's alogrithm on integer multiplication"""
 
-    def add_zero(num1, num2):
+    def pad_zero(num1, num2):
         str1 = str(num1)
         str2 = str(num2)
         n0 = len(str1) - len(str2)
@@ -20,7 +21,7 @@ class Karatsuba:
         return str1, str2
 
     def mul(num1, num2):
-        str1, str2 = Karatsuba.add_zero(num1, num2)
+        str1, str2 = Karatsuba.pad_zero(num1, num2)
         n = len(str1)
         if n > 1:
             hdigit = ceil(n/2.) 
@@ -48,13 +49,17 @@ class Karatsuba:
 # Main
 # ====================
 
-# num1 = 4535
-# num2 = 1235
+# num1 = 453512312343125345552131245367123412341245
+# num2 = 123545654645465465465734512313456467756756
 
 num1 = 3141592653589793238462643383279502884197169399375105820974944592
 num2 = 2718281828459045235360287471352662497757247093699959574966967627
 
 print(Karatsuba.__doc__)
-# print(Karatsuba.add_zero(1, 10))
+
+start = time.time()
 print(Karatsuba.mul(num1, num2))
+end = time.time()
 print(num1*num2)
+end2 = time.time()
+print("Running time of Karatsuba: ", end - start, "\nRunning time of default: ", end2 - end)
