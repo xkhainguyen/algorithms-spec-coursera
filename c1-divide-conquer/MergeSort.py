@@ -30,15 +30,14 @@ class Sort:
                     i1 += 1
                     if i1 == hidx:
                         new_str = new_str + str2[i2:]
-                        break
+                        return new_str
                         
                 else:
                     new_str.append(str2[i2])
                     i2 += 1
                     if i2 == (n - hidx):
                         new_str = new_str + str1[i1:]
-                        break
-            return new_str
+                        return new_str
         else:
             return str
 
@@ -50,4 +49,4 @@ str = [4213, 2312, 1321, 3312, 312, 3414, 42341, 44 , 41 , 42, 31, 123, 12, 50, 
 str1 = [5, 4, 3, 2, 10, 11, 12, 13] 
 
 print(Sort.__doc__)
-print(Sort.mergeSort(str1))
+print(Sort.mergeSort(str))
